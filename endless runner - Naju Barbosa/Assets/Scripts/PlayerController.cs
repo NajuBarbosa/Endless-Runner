@@ -2,9 +2,10 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+     private GameController gameController;
 
     public float speed = 0f;
-    public float jumpForce = 650f;
+    public float jumpForce = 15f;
 
     public bool isGrounded = true;
     private Rigidbody2D rb;
@@ -16,6 +17,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        gameController = GameController.Instance;
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
 
@@ -56,6 +58,7 @@ public class PlayerController : MonoBehaviour
     {
         if (isGrounded)
         {
+            gameController.fxGame.PlayOneShot(gameController.fxJump);
             rb.linearVelocity = Vector2.zero;
             rb.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
         }
