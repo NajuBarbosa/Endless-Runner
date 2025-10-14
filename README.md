@@ -28,7 +28,7 @@ Foi um projeto criado para treinar lógica, organização de scripts e a constru
 
 ## 🎮 Sobre o projeto
 
-Esse projeto foi desenvolvido com base nos vídeos da [**Academia Unity Desenvolvimento de Jogos - GameDev**](https://www.youtube.com/watch?v=aS5ZoP3dctA&list=PLciEA-M4VWn0ofKL0ddLeauOhMmGmEPQ8).  
+Esse projeto foi desenvolvido com base nos vídeos da <a href="https://www.youtube.com/watch?v=aS5ZoP3dctA&list=PLciEA-M4VWn0ofKL0ddLeauOhMmGmEPQ8" target="_blank"><strong>Academia Unity Desenvolvimento de Jogos - GameDev</strong></a>.
 Por se tratar de um material mais antigo, realizei **ajustes na programação** para que o código ficasse compatível com versões mais recentes da Unity e seguisse práticas mais atuais.
 
 Foi uma ótima oportunidade para reforçar conceitos de **movimento, repetição de cenário, parallax e organização de scripts** dentro de um projeto completo e funcional.
