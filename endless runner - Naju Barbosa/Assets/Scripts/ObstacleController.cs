@@ -1,3 +1,4 @@
+using UnityEditor.Rendering;
 using UnityEngine;
 
 public class ObstacleController : MonoBehaviour
@@ -5,6 +6,7 @@ public class ObstacleController : MonoBehaviour
     private GameController gameController;
 
     private Rigidbody2D rbObstacle;
+    public GameObject gameOver;
 
     void Start()
     {
@@ -31,7 +33,7 @@ public class ObstacleController : MonoBehaviour
             gameController.lifes--;
             if (gameController.lifes < 0)
             {
-                Debug.Log("Game Over");
+                gameController.GameOver();
             }
             else
             {

@@ -41,6 +41,14 @@ public class GameController : MonoBehaviour
     public AudioClip fxPoint;
     public AudioClip fxJump;
     public AudioClip fxHit;
+    public AudioClip fxGameOver;
+    public AudioSource bgMusic;
+    public AudioSource bgMusicGameOver;
+
+    [Header("UI Game Over")]
+
+    public GameObject gameOver;
+    public GameObject retryButton;
 
 
     private void Awake()
@@ -93,5 +101,41 @@ public class GameController : MonoBehaviour
         scoreText.text = score.ToString("0");
     }
 
+    public void GameOver()
+    {
+        fxGame.PlayOneShot(fxGameOver);
+        gameOver.SetActive(true);
+        bgMusic.Pause();
+        bgMusicGameOver.Play();
+        Time.timeScale = 0;
+    }
+
+    public void RestartGame()
+    {
+        foreach (var obs in GameObject.FindObjectsOfType<ObstacleController>())
+        {
+            Destroy(obs.gameObject);
+        }
+
+        foreach (var coin in GameObject.FindObjectsOfType<CoinController>())
+        {
+            Destroy(coin.gameObject);
+        }
+    
+    
+        gameOver.SetActive(false);
+        bgMusicGameOver.Stop();
+        bgMusic.Stop();
+        bgMusic.Play();
+        Time.timeScale = 1;
+
+        score = 0;
+        lifes = 3;
+        scoreText.text = "0";
+        lifesText.text = "3";
+
+        StartCoroutine(SpawnObstacle());
+        StartCoroutine(SpawnCoin());
+    }
 
 }
